@@ -27,14 +27,9 @@ const images = [
 
 const galleryIMG = document.querySelector(".gallery");
 
-images.forEach(({ url, alt }) => {
-  const listItem = document.createElement('li');
-  const img = document.createElement('img');
-  
-  img.src = url;
-  img.alt = alt;
-  
-  listItem.append(img);
-  galleryIMG.append(listItem);
-});
 
+const galleryHTML = images.map(({ url, alt }) => {
+  return `<li><img src="${url}" alt="${alt}"></li>`;
+}).join('');
+
+galleryIMG.innerHTML = galleryHTML;
